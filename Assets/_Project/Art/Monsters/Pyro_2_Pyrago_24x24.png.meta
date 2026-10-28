@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,20 +125,20 @@ TextureImporter:
       name: Pyro_2_Pyrago_24x24_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 18
+        width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4d1c7379877438970800000000000000
-      internalID: 8755920683797037524
+      spriteID: 1d364b6d1d72f814d9bf8afbf574095a
+      internalID: 45339922
       vertices: []
       indices: 
       edges: []
@@ -147,20 +147,20 @@ TextureImporter:
       name: Pyro_2_Pyrago_24x24_1
       rect:
         serializedVersion: 2
-        x: 27
+        x: 24
         y: 0
-        width: 18
+        width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7719f5d68430e5790800000000000000
-      internalID: -7539585116564123273
+      spriteID: 53f36f6d0e922ab47a1c7358d688c2f7
+      internalID: -457087713
       vertices: []
       indices: 
       edges: []
@@ -169,20 +169,20 @@ TextureImporter:
       name: Pyro_2_Pyrago_24x24_2
       rect:
         serializedVersion: 2
-        x: 50
+        x: 48
         y: 0
-        width: 18
+        width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b1be94697e064f3b0800000000000000
-      internalID: -5479648298827912421
+      spriteID: 17f4d6c157201884aa3e49ef3e0a6764
+      internalID: 1871097849
       vertices: []
       indices: 
       edges: []
@@ -191,20 +191,20 @@ TextureImporter:
       name: Pyro_2_Pyrago_24x24_3
       rect:
         serializedVersion: 2
-        x: 75
+        x: 72
         y: 0
-        width: 18
+        width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0fd5098cea4bf09d0800000000000000
-      internalID: -2805825380046316048
+      spriteID: f79f91b86affa26438dae6fea723bbd0
+      internalID: -307287728
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2c16d7feaedf90645b6afeb8c813b27b
     internalID: 0
     vertices: []
     indices: 
@@ -221,12 +221,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":24.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Pyro_2_Pyrago_24x24_0: 8755920683797037524
-      Pyro_2_Pyrago_24x24_1: -7539585116564123273
-      Pyro_2_Pyrago_24x24_2: -5479648298827912421
-      Pyro_2_Pyrago_24x24_3: -2805825380046316048
+      Pyro_2_Pyrago_24x24_0: 45339922
+      Pyro_2_Pyrago_24x24_1: -457087713
+      Pyro_2_Pyrago_24x24_2: 1871097849
+      Pyro_2_Pyrago_24x24_3: -307287728
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

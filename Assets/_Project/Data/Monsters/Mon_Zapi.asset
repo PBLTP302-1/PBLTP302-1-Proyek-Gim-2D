@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f91ed2c321a4f41ae4244ec5f19c36, type: 3}
+  m_Name: Mon_Zapi
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterData
+  id: MON_010
+  displayName: Zapi
+  element: 3
+  frames:
+  - {fileID: -935788305, guid: 48a002e418880ec40bbccfa8cf5c29d1, type: 3}
+  - {fileID: 1127319194, guid: 48a002e418880ec40bbccfa8cf5c29d1, type: 3}
+  - {fileID: -1360940126, guid: 48a002e418880ec40bbccfa8cf5c29d1, type: 3}
+  - {fileID: -550173525, guid: 48a002e418880ec40bbccfa8cf5c29d1, type: 3}
+  baseHP: 38
+  baseATK: 12
+  baseDEF: 7
+  baseSPD: 14
+  skillName: Setrum Kilam
+  evolvesTo: {fileID: 11400000, guid: 24530c36e1426cb4faaa0961c84e0407, type: 2}
+  evolveLevel: 5

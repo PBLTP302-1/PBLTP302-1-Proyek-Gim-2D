@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,20 +125,20 @@ TextureImporter:
       name: Pyro_3_Infernox_32x32_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 26
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ec75314f7fe846850800000000000000
-      internalID: 6369372968611698638
+      spriteID: c348c118bd9ce634b8ccc05e66d75934
+      internalID: -357192442
       vertices: []
       indices: 
       edges: []
@@ -147,20 +147,20 @@ TextureImporter:
       name: Pyro_3_Infernox_32x32_1
       rect:
         serializedVersion: 2
-        x: 35
+        x: 32
         y: 0
-        width: 26
-        height: 31
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5ef25635b29d56ed0800000000000000
-      internalID: -2421290444535812123
+      spriteID: 7116058c0a9645944a0d08d2789966e2
+      internalID: -1658376536
       vertices: []
       indices: 
       edges: []
@@ -169,20 +169,20 @@ TextureImporter:
       name: Pyro_3_Infernox_32x32_2
       rect:
         serializedVersion: 2
-        x: 66
+        x: 64
         y: 0
-        width: 26
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3de75127122132d80800000000000000
-      internalID: -8276751755319607597
+      spriteID: 026819dadfae1dc429faf66224b09953
+      internalID: -1451805587
       vertices: []
       indices: 
       edges: []
@@ -191,20 +191,20 @@ TextureImporter:
       name: Pyro_3_Infernox_32x32_3
       rect:
         serializedVersion: 2
-        x: 99
+        x: 96
         y: 0
-        width: 26
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 74000a1b7c35f8a20800000000000000
-      internalID: 3066761988406247495
+      spriteID: 992b52bdcbc57e746a02738d834465b1
+      internalID: 2124344351
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 77126751947d3e74fa02f94f26d86c60
     internalID: 0
     vertices: []
     indices: 
@@ -221,12 +221,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Pyro_3_Infernox_32x32_0: 6369372968611698638
-      Pyro_3_Infernox_32x32_1: -2421290444535812123
-      Pyro_3_Infernox_32x32_2: -8276751755319607597
-      Pyro_3_Infernox_32x32_3: 3066761988406247495
+      Pyro_3_Infernox_32x32_0: -357192442
+      Pyro_3_Infernox_32x32_1: -1658376536
+      Pyro_3_Infernox_32x32_2: -1451805587
+      Pyro_3_Infernox_32x32_3: 2124344351
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

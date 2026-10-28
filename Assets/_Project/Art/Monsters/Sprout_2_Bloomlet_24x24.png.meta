@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,20 +125,20 @@ TextureImporter:
       name: Sprout_2_Bloomlet_24x24_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 18
-        height: 23
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3289f29caf3468060800000000000000
-      internalID: 6955321418916534307
+      spriteID: 7ff13cb31ae56bf45903533437908180
+      internalID: 116852024
       vertices: []
       indices: 
       edges: []
@@ -147,20 +147,20 @@ TextureImporter:
       name: Sprout_2_Bloomlet_24x24_1
       rect:
         serializedVersion: 2
-        x: 27
+        x: 24
         y: 0
-        width: 18
-        height: 22
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0f04aea6aba989d80800000000000000
-      internalID: -8243668992453361424
+      spriteID: b45487f9c2d33fa4daff7df5c70ce787
+      internalID: 642721630
       vertices: []
       indices: 
       edges: []
@@ -169,20 +169,20 @@ TextureImporter:
       name: Sprout_2_Bloomlet_24x24_2
       rect:
         serializedVersion: 2
-        x: 50
+        x: 48
         y: 0
-        width: 18
+        width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 726e8595b39641c60800000000000000
-      internalID: 7787965359253415463
+      spriteID: 0838fa962f3773046a0cb8c0d565dad3
+      internalID: -1122372831
       vertices: []
       indices: 
       edges: []
@@ -191,20 +191,20 @@ TextureImporter:
       name: Sprout_2_Bloomlet_24x24_3
       rect:
         serializedVersion: 2
-        x: 75
+        x: 72
         y: 0
-        width: 18
-        height: 23
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f742ab6d5f7d90f40800000000000000
-      internalID: 5695320654656185471
+      spriteID: 81b485a0ff7a3b44db8feafb82f43d05
+      internalID: -725188922
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2c4102184e8b27046b5d39d391c21e05
     internalID: 0
     vertices: []
     indices: 
@@ -221,12 +221,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":24.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Sprout_2_Bloomlet_24x24_0: 6955321418916534307
-      Sprout_2_Bloomlet_24x24_1: -8243668992453361424
-      Sprout_2_Bloomlet_24x24_2: 7787965359253415463
-      Sprout_2_Bloomlet_24x24_3: 5695320654656185471
+      Sprout_2_Bloomlet_24x24_0: 116852024
+      Sprout_2_Bloomlet_24x24_1: 642721630
+      Sprout_2_Bloomlet_24x24_2: -1122372831
+      Sprout_2_Bloomlet_24x24_3: -725188922
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -146,265 +146,265 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Walk_16x16_0
+      name: NPC_Girl_Walk_16x16_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 47
-        width: 14
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7fdfe7fb32ae1f4f0800000000000000
-      internalID: -796598219810341385
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Walk_16x16_1
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 31
-        width: 12
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 09774bb5822fa2020800000000000000
-      internalID: 2317931213386708880
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Walk_16x16_2
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 47
-        width: 14
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7fa6945863624950800000000000000
-      internalID: 6431812517585399679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Walk_16x16_3
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 31
-        width: 12
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fac4ec35f571263f0800000000000000
-      internalID: -909138476580057937
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Walk_16x16_4
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 47
-        width: 14
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2cf78eb5651b12200800000000000000
-      internalID: 153598846774575042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Walk_16x16_5
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 31
-        width: 12
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8afb01016fa57a860800000000000000
-      internalID: 7541096113933172648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Walk_16x16_6
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 0
-        width: 14
+        x: 0
+        y: 48
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 34acbc4a7a514ded0800000000000000
-      internalID: -2390261692458350013
+      spriteID: f1915285f827f3b4a831e8cad9460163
+      internalID: 2096600499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Walk_16x16_7
+      name: NPC_Girl_Walk_16x16_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 15
-        width: 12
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f4848c296f57b9700800000000000000
-      internalID: 548161481540651087
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Walk_16x16_8
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 0
-        width: 14
+        x: 16
+        y: 48
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c652e255f49e96510800000000000000
-      internalID: 1543020874291881324
+      spriteID: 422b0969bab17c7459594f6e06be9ea4
+      internalID: -222040498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Walk_16x16_9
+      name: NPC_Girl_Walk_16x16_2
       rect:
         serializedVersion: 2
-        x: 18
-        y: 15
-        width: 12
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0e66d29e42166b0c0800000000000000
-      internalID: -4560350761507264800
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Walk_16x16_10
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 0
-        width: 14
+        x: 32
+        y: 48
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d63ce423cddacc650800000000000000
-      internalID: 6254565143759209325
+      spriteID: 4e8febc7eebe46046b3827e0f01d1e96
+      internalID: -1600884293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Walk_16x16_11
+      name: NPC_Girl_Walk_16x16_3
       rect:
         serializedVersion: 2
-        x: 34
-        y: 15
-        width: 12
-        height: 17
+        x: 0
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a3d20e941995a8d70800000000000000
-      internalID: 9046141282071620922
+      spriteID: b85f88df25d18f64cba247beb2eef394
+      internalID: 352214762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Girl_Walk_16x16_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab987197dfe9b8b4c8dd8cf7531e5b07
+      internalID: 1554093750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Girl_Walk_16x16_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 691d4d3f527b4f8418d9c306cdec09d3
+      internalID: -1680486470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Girl_Walk_16x16_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b3d08ddb1abc34dbcf36163f5387b8
+      internalID: -1528474558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Girl_Walk_16x16_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab119599e994e94ea14ea97d02855b0
+      internalID: 465535291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Girl_Walk_16x16_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 618075e51a76dc64fbf526e515a526a0
+      internalID: 571716941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Girl_Walk_16x16_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9883d29d27cc6e14db5df8baf2d656e5
+      internalID: 307117057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Girl_Walk_16x16_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a346fe288e6c7b4198ceb530b697e21
+      internalID: -1785979153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Girl_Walk_16x16_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96c522a73a845074cb493ada642e917e
+      internalID: 620319772
       vertices: []
       indices: 
       edges: []
@@ -413,7 +413,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 139b30b63d5b4c44c85b4f9fc7219e65
     internalID: 0
     vertices: []
     indices: 
@@ -421,20 +421,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Player_Walk_16x16_0: -796598219810341385
-      Player_Walk_16x16_1: 2317931213386708880
-      Player_Walk_16x16_10: 6254565143759209325
-      Player_Walk_16x16_11: 9046141282071620922
-      Player_Walk_16x16_2: 6431812517585399679
-      Player_Walk_16x16_3: -909138476580057937
-      Player_Walk_16x16_4: 153598846774575042
-      Player_Walk_16x16_5: 7541096113933172648
-      Player_Walk_16x16_6: -2390261692458350013
-      Player_Walk_16x16_7: 548161481540651087
-      Player_Walk_16x16_8: 1543020874291881324
-      Player_Walk_16x16_9: -4560350761507264800
+      NPC_Girl_Walk_16x16_0: 2096600499
+      NPC_Girl_Walk_16x16_1: -222040498
+      NPC_Girl_Walk_16x16_10: -1785979153
+      NPC_Girl_Walk_16x16_11: 620319772
+      NPC_Girl_Walk_16x16_2: -1600884293
+      NPC_Girl_Walk_16x16_3: 352214762
+      NPC_Girl_Walk_16x16_4: 1554093750
+      NPC_Girl_Walk_16x16_5: -1680486470
+      NPC_Girl_Walk_16x16_6: -1528474558
+      NPC_Girl_Walk_16x16_7: 465535291
+      NPC_Girl_Walk_16x16_8: 571716941
+      NPC_Girl_Walk_16x16_9: 307117057
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

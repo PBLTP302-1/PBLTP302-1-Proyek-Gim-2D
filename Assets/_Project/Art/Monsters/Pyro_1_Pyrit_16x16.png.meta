@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,20 +125,20 @@ TextureImporter:
       name: Pyro_1_Pyrit_16x16_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 14
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e1ab82ce96ed76d50800000000000000
-      internalID: 6730592714643520030
+      spriteID: 8f5f16e0caf9c8b43839dfd6fe13076a
+      internalID: -1090118508
       vertices: []
       indices: 
       edges: []
@@ -147,20 +147,20 @@ TextureImporter:
       name: Pyro_1_Pyrit_16x16_1
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 0
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5fa699f1f86624750800000000000000
-      internalID: 6287700794659138293
+      spriteID: 3172d959760da3445aa05ceec5543401
+      internalID: -1610108371
       vertices: []
       indices: 
       edges: []
@@ -171,18 +171,18 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 14
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 830fa350100b23f20800000000000000
-      internalID: 3400974187047350328
+      spriteID: 51ccddb95b4bf4544bef50210222bae0
+      internalID: -504863808
       vertices: []
       indices: 
       edges: []
@@ -191,20 +191,20 @@ TextureImporter:
       name: Pyro_1_Pyrit_16x16_3
       rect:
         serializedVersion: 2
-        x: 49
+        x: 48
         y: 0
-        width: 14
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b3fc3b778d2475770800000000000000
-      internalID: 8599415510975893307
+      spriteID: 058c212e02ef529449429a8cad74edef
+      internalID: -864240050
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: db1d74254d91dc44f86a41adddbbd91d
     internalID: 0
     vertices: []
     indices: 
@@ -221,12 +221,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Pyro_1_Pyrit_16x16_0: 6730592714643520030
-      Pyro_1_Pyrit_16x16_1: 6287700794659138293
-      Pyro_1_Pyrit_16x16_2: 3400974187047350328
-      Pyro_1_Pyrit_16x16_3: 8599415510975893307
+      Pyro_1_Pyrit_16x16_0: -1090118508
+      Pyro_1_Pyrit_16x16_1: -1610108371
+      Pyro_1_Pyrit_16x16_2: -504863808
+      Pyro_1_Pyrit_16x16_3: -864240050
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

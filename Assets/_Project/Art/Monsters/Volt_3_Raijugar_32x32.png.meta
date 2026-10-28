@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,20 +125,20 @@ TextureImporter:
       name: Volt_3_Raijugar_32x32_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 30
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1848fe6cb58424db0800000000000000
-      internalID: -4809201893061458815
+      spriteID: db9043333db07774dbf839e71135ca36
+      internalID: -1414003870
       vertices: []
       indices: 
       edges: []
@@ -147,20 +147,20 @@ TextureImporter:
       name: Volt_3_Raijugar_32x32_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 0
-        width: 30
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 341d54ef1f21e37f0800000000000000
-      internalID: -631046067222884029
+      spriteID: a27ab5e497c5fcb4c8ce88ecaff5b1cf
+      internalID: -25317619
       vertices: []
       indices: 
       edges: []
@@ -171,18 +171,18 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 30
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cfebcd4115e3dd850800000000000000
-      internalID: 6403342763153997564
+      spriteID: 7b0ec0a67e2d58346a07f9d175ebebcd
+      internalID: 4078981
       vertices: []
       indices: 
       edges: []
@@ -191,20 +191,20 @@ TextureImporter:
       name: Volt_3_Raijugar_32x32_3
       rect:
         serializedVersion: 2
-        x: 97
+        x: 96
         y: 0
-        width: 30
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cfe64a68950f9e090800000000000000
-      internalID: -8004602595372667140
+      spriteID: e5c1dd5120e6b4545b548fc90da38ba4
+      internalID: -1523461859
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1f16bbb2c9e2d8944b0486a784174846
     internalID: 0
     vertices: []
     indices: 
@@ -221,12 +221,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Volt_3_Raijugar_32x32_0: -4809201893061458815
-      Volt_3_Raijugar_32x32_1: -631046067222884029
-      Volt_3_Raijugar_32x32_2: 6403342763153997564
-      Volt_3_Raijugar_32x32_3: -8004602595372667140
+      Volt_3_Raijugar_32x32_0: -1414003870
+      Volt_3_Raijugar_32x32_1: -25317619
+      Volt_3_Raijugar_32x32_2: 4078981
+      Volt_3_Raijugar_32x32_3: -1523461859
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
