@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -128,17 +128,17 @@ TextureImporter:
         x: 0
         y: 0
         width: 32
-        height: 31
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1bf18e5ebed0eea40800000000000000
-      internalID: 5399268310089473969
+      spriteID: 2c31963052efe2a428c0ded365da934a
+      internalID: -821350165
       vertices: []
       indices: 
       edges: []
@@ -150,17 +150,17 @@ TextureImporter:
         x: 32
         y: 0
         width: 32
-        height: 30
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6b7618660ac194520800000000000000
-      internalID: 2686710127943313334
+      spriteID: e3d1d0155a654e1459455918f80ea47b
+      internalID: 706561669
       vertices: []
       indices: 
       edges: []
@@ -169,20 +169,20 @@ TextureImporter:
       name: Sprout_3_Florazor_32x32_2
       rect:
         serializedVersion: 2
-        x: 63
+        x: 64
         y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c264c89fa7eb4dfd0800000000000000
-      internalID: -2318018472806955476
+      spriteID: 6f8fe8f746ddfe744aa3a1f2f6d68220
+      internalID: 1242346001
       vertices: []
       indices: 
       edges: []
@@ -194,17 +194,17 @@ TextureImporter:
         x: 96
         y: 0
         width: 32
-        height: 31
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 35a52baf49430b090800000000000000
-      internalID: -8020853121881056685
+      spriteID: 841a550667f81814b9d73ab99f362aed
+      internalID: 1461748544
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0d4b59fd509e5a245bd87227e1b7c745
     internalID: 0
     vertices: []
     indices: 
@@ -221,12 +221,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Sprout_3_Florazor_32x32_0: 5399268310089473969
-      Sprout_3_Florazor_32x32_1: 2686710127943313334
-      Sprout_3_Florazor_32x32_2: -2318018472806955476
-      Sprout_3_Florazor_32x32_3: -8020853121881056685
+      Sprout_3_Florazor_32x32_0: -821350165
+      Sprout_3_Florazor_32x32_1: 706561669
+      Sprout_3_Florazor_32x32_2: 1242346001
+      Sprout_3_Florazor_32x32_3: 1461748544
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
