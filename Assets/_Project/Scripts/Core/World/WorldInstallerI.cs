@@ -52,7 +52,7 @@ public class WorldInstallerI : SceneInstaller
             StartCoroutine(RunIntro(s));
         }
 
-        // 3. NPC Construct (dengan fallback aman untuk Dialogue)
+        // 3. NPC Construct
         DialogueRunner dialogue = s.Dialogue;
         if (dialogue == null)
         {
@@ -61,13 +61,13 @@ public class WorldInstallerI : SceneInstaller
             if (dialogue != null) s.Dialogue = dialogue;
         }
 
-        if (starterGiver != null) starterGiver.Construct(dialogue, s.Flags, s.Party);
-        if (guardNpc != null) guardNpc.Construct(dialogue, s.Flags, s.Party);
-        if (merchantNpc != null) merchantNpc.Construct(dialogue, s.Flags, s.Party);
+        if (starterGiver != null) starterGiver.Construct(dialogue, s.Flags, s.Party, s.Toast);
+        if (guardNpc != null) guardNpc.Construct(dialogue, s.Flags, s.Party, s.Toast);
+        if (merchantNpc != null) merchantNpc.Construct(dialogue, s.Flags, s.Party, s.Toast);
 
         foreach (NpcI npc in otherNpcs)
         {
-            if (npc != null) npc.Construct(dialogue, s.Flags, s.Party);
+            if (npc != null) npc.Construct(dialogue, s.Flags, s.Party, s.Toast);
         }
 
         // 4. Monster Liar
@@ -80,7 +80,7 @@ public class WorldInstallerI : SceneInstaller
         }
     }
 
-    // ⚠️ WAJIB: Narasi pembuka sesuai modul P6
+    // 🟢 METHOD INI YANG HILANG - Narasi pembuka sesuai modul P6
     private IEnumerator RunIntro(GameServicesI s)
     {
         Debug.Log("[WorldInstaller] Memulai narasi pembuka...");
@@ -88,7 +88,7 @@ public class WorldInstallerI : SceneInstaller
         // Jalankan narasi
         s.Dialogue.Run(IntroLines());
 
-        // ⚠️ WAJIB: Tunggu 1 frame agar Run() sempat dieksekusi
+        // ️ WAJIB: Tunggu 1 frame agar Run() sempat dieksekusi
         yield return null;
 
         // ⚠️ WAJIB: Tunggu sampai seluruh dialog intro selesai
@@ -115,10 +115,9 @@ public class WorldInstallerI : SceneInstaller
         }
     }
 
-    // ⚠️ WAJIB: Urutan narasi pembuka
+    // 🟢 METHOD INI JUGA HARUS ADA - Urutan narasi pembuka
     private IEnumerator IntroLines()
     {
-        // Gunakan DialogueRunner yang sudah di-resolve di Install()
         DialogueRunner dialogue = FindAnyObjectByType<DialogueRunner>();
         
         yield return dialogue.Narrate("Di ujung Pulau Batam ada desa kecil yang damai...");

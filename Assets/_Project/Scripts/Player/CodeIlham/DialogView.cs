@@ -7,27 +7,27 @@ public class DialogueView : MonoBehaviour
 {
     [Header("Root")]
     [SerializeField] private GameObject dialogueRoot;
-    [SerializeField] private GameObject clickCatcher;
+    [SerializeField] private GameObject clickCatcher; // WAJIB punya Image (alpha 0) & Button
 
     [Header("Box Dialog")]
     [SerializeField] private Image boxImage;
     [SerializeField] private TextMeshProUGUI bodyText;
 
     [Header("Speaker")]
-    [SerializeField] private GameObject speakerTag;
+    [SerializeField] private GameObject speakerTag; // WAJIB punya Image (UI_Panel_Gold)
     [SerializeField] private TextMeshProUGUI speakerText;
 
     [Header("Continue Hint")]
-    [SerializeField] private GameObject continueHint;
+    [SerializeField] private GameObject continueHint; // Teks "▼"
 
     [Header("Choices")]
-    [SerializeField] private GameObject choicesPanel;
-    [SerializeField] private TextInput choicesMenu;
+    [SerializeField] private GameObject choicesPanel; // WAJIB punya Image (UI_Panel_Navy)
+    [SerializeField] private TextInput choicesMenu;   // Sesuai nama class Anda
 
     [Header("Dialogue Runner")]
     [SerializeField] private DialogueRunner runner;
 
-    [Header("Sprite Narasi")]
+    [Header("Sprite Box")]
     [SerializeField] private Sprite spriteNavy;   // UI_Panel_Navy
     [SerializeField] private Sprite spriteNarr;   // UI_Panel_Narr
 
@@ -42,25 +42,26 @@ public class DialogueView : MonoBehaviour
         if (choicesPanel != null) choicesPanel.SetActive(false);
         if (continueHint != null) continueHint.SetActive(false);
 
-        // 🟢 WAJIB: Set warna box ke PUTIH agar sprite tampil dengan warna aslinya
-        if (boxImage != null)
+        // WAJIB: Set warna box ke PUTIH agar sprite tampil warna asli
+        if (boxImage != null) boxImage.color = Color.white;
+
+        // Hubungkan ClickCatcher untuk advance dialog (klik mouse di area dialog)
+        if (clickCatcher != null)
         {
-            boxImage.color = Color.white;
+            Button btn = clickCatcher.GetComponent<Button>();
+            if (btn == null) btn = clickCatcher.AddComponent<Button>();
+            
+            // Hapus listener lama untuk menghindari duplikasi
+            btn.onClick.RemoveAllListeners();
+            btn.onClick.AddListener(() => { 
+                if (runner != null) runner.OnClicked(); 
+            });
         }
 
-        // Hubungkan TextMenu.Picked ke DialogueRunner.OnPicked
+        // Hubungkan TextInput.Picked ke DialogueRunner.OnPicked
         if (choicesMenu != null && runner != null)
         {
-            choicesMenu.Picked += (index) =>
-            {
-                Debug.Log($"[DialogueView] Pilihan dipilih: {index}");
-                runner.OnPicked(index);
-            };
-            Debug.Log("[DialogueView] TextMenu.Picked terhubung ke DialogueRunner.OnPicked");
-        }
-        else
-        {
-            Debug.LogError($"[DialogueView] Koneksi gagal! choicesMenu={choicesMenu != null}, runner={runner != null}");
+            choicesMenu.Picked += (index) => runner.OnPicked(index);
         }
     }
 
@@ -68,19 +69,13 @@ public class DialogueView : MonoBehaviour
     {
         if (dialogueRoot != null) dialogueRoot.SetActive(true);
 
-        // 🟢 GANTI SPRITE, BUKAN WARNA!
         if (boxImage != null)
         {
             boxImage.color = Color.white; // Selalu putih!
-            
             if (isNarration && spriteNarr != null)
-            {
                 boxImage.sprite = spriteNarr; // Sprite narasi (biru gelap)
-            }
             else if (!isNarration && spriteNavy != null)
-            {
                 boxImage.sprite = spriteNavy; // Sprite dialog (navy)
-            }
         }
 
         if (speakerTag != null) speakerTag.SetActive(false);
@@ -103,9 +98,17 @@ public class DialogueView : MonoBehaviour
     {
         IsTyping = true;
 
+        // Handle Speaker Tag dengan Lebar Dinamis (Modul P6 Slide 8)
         if (!string.IsNullOrEmpty(speaker))
         {
-            if (speakerTag != null) speakerTag.SetActive(true);
+            if (speakerTag != null)
+            {
+                speakerTag.SetActive(true);
+                // Lebar min(488, huruf × 20 + 64)
+                RectTransform rect = speakerTag.GetComponent<RectTransform>();
+                float width = Mathf.Min(488f, speaker.Length * 20f + 64f);
+                rect.sizeDelta = new Vector2(width, rect.sizeDelta.y);
+            }
             if (speakerText != null) speakerText.text = speaker;
         }
         else
@@ -114,7 +117,6 @@ public class DialogueView : MonoBehaviour
         }
 
         if (bodyText != null) bodyText.text = "";
-
         if (continueHint != null) continueHint.SetActive(false);
 
         if (bodyText != null && !string.IsNullOrEmpty(text))
@@ -143,7 +145,6 @@ public class DialogueView : MonoBehaviour
 
         if (choicesMenu != null && options != null)
         {
-            Debug.Log($"[DialogueView] ShowChoices: {options.Length} options");
             choicesMenu.Open(options);
         }
     }

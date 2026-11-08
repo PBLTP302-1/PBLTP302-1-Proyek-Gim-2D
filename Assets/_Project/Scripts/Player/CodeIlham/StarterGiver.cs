@@ -6,7 +6,7 @@ public class StarterGiver : NpcI
     [Header("Starter Giver")]
     [SerializeField] private MonsterDataI[] starters;
     [SerializeField] private int starterLevel = 3;
-    [SerializeField] private ToastView toast;
+    // 🟢 HAPUS: [SerializeField] private ToastView toast; (sudah diwariskan dari NpcI)
 
     protected override IEnumerator Talk()
     {
@@ -47,7 +47,8 @@ public class StarterGiver : NpcI
         yield return Dialogue.Say(npcName, "Rawat dia baik-baik. Menang bertarung membuatnya naik level, lalu berevolusi.");
         yield return Dialogue.Say(npcName, "Batu Simpan di sebelahku menyimpan perjalananmu dan memulihkan partnermu.");
 
-        if (toast != null)
-            toast.Show("Penjaga Batas sudah membuka jalan ke hutan");
+        // 🟢 GUNAKAN Toast yang diwariskan dari NpcI
+        if (Toast != null)
+            Toast.Show("Penjaga Batas sudah membuka jalan ke hutan");
     }
 }

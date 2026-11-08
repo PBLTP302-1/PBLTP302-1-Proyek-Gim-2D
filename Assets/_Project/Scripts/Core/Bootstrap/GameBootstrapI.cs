@@ -17,41 +17,46 @@ public class GameBootstrapI : MonoBehaviour
 
     void Awake()
     {
-         DontDestroyOnLoad(gameObject);
-    Debug.Log("🚀 1. GameBootstrapI AWAKE BERJALAN!");
+        DontDestroyOnLoad(gameObject);
+        Debug.Log("🚀 1. GameBootstrapI AWAKE BERJALAN!");
 
-    if (dialogueRunner != null)
-    {
-        DontDestroyOnLoad(dialogueRunner.gameObject);
-    }
+        // 🟢 WAJIB: Buat DialogueRunner & ToastView juga DontDestroyOnLoad
+        if (dialogueRunner != null)
+        {
+            DontDestroyOnLoad(dialogueRunner.gameObject);
+            Debug.Log($"[GameBootstrap] DialogueRunner DontDestroyOnLoad: {dialogueRunner.gameObject.name}");
+        }
+        else
+        {
+            Debug.LogError("[GameBootstrap] dialogueRunner NULL di Inspector!");
+        }
 
-    if (toastView != null)
-    {
-        DontDestroyOnLoad(toastView.gameObject);
-    }
+        if (toastView != null)
+        {
+            DontDestroyOnLoad(toastView.gameObject);
+            Debug.Log($"[GameBootstrap] ToastView DontDestroyOnLoad: {toastView.gameObject.name}");
+        }
 
-    var gate = new InputGate(new InputSystemMoveInputI(), new InputSystemActionInputI());
-
-    services = new GameServicesI
-    {
-        Input = gate,
-        Database = monsterDatabase,
-        Party = new PlayerPartyI(),
-        Battle = new BattleSessionI(),
-        Dialogue = dialogueRunner,
-        Flags = new StoryFlags(),
-        Toast = toastView,
-        Save = new SaveService(),      // 🟢 TAMBAHKAN
-        Audio = new AudioService()     // 🟢 TAMBAHKAN
-    };
-
-    services.Scenes = gameObject.AddComponent<SceneFlowI>();
-    services.Scenes.Construct(this, fader, services);
-
-    if (dialogueRunner != null)
-    {
-        dialogueRunner.SetGate(gate);
-    }
+        var gate = new InputGate(new InputSystemMoveInputI(), new InputSystemActionInputI());
+        
+        services = new GameServicesI
+        {
+            Input = gate,
+            Database = monsterDatabase,
+            Party = new PlayerPartyI(),
+            Battle = new BattleSessionI(),
+            Dialogue = dialogueRunner,
+            Flags = new StoryFlags(),
+            Toast = toastView
+        };
+        
+        services.Scenes = gameObject.AddComponent<SceneFlowI>();
+        services.Scenes.Construct(this, fader, services);
+        
+        if (dialogueRunner != null)
+        {
+            dialogueRunner.SetGate(gate);
+        }
     }
 
     void Start()

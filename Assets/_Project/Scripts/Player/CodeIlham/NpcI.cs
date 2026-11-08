@@ -9,28 +9,29 @@ public class NpcI : MonoBehaviour, IInteractableI
     [SerializeField] protected Sprite faceDown, faceLeft, faceRight, faceUp;
     [SerializeField] protected DialogueData dialogue;
 
+    // 🟢 Property yang bisa diakses oleh class turunan
     protected DialogueRunner Dialogue { get; private set; }
     protected StoryFlags Flags { get; private set; }
-    protected PlayerPartyI Party { get; set; }
+    protected PlayerPartyI Party { get; private set; }
+    protected ToastView Toast { get; private set; } // 🟢 BARU
 
-    public virtual void Construct(DialogueRunner dialogue, StoryFlags flags, PlayerPartyI party = null)
+    public virtual void Construct(DialogueRunner dialogue, StoryFlags flags, PlayerPartyI party, ToastView toast)
     {
         Dialogue = dialogue;
         Flags = flags;
         Party = party;
+        Toast = toast; // 🟢 BARU
         OnConstructed();
     }
 
     public void Interact(PlayerInteractorI who)
     {
-        Debug.Log($"[NpcI] Interact dipanggil: {npcName}. Dialogue={Dialogue != null}, IsRunning={Dialogue?.IsRunning}");
-
         if (Dialogue == null)
         {
-            Debug.LogWarning($"[NpcI] Dialogue NULL! WorldInstaller belum Construct NPC ini.");
+            Debug.LogWarning($"[NpcI] Dialogue NULL pada {npcName}!");
             Face(who.transform.position - transform.position);
             return;
-        }
+                }
 
         if (Dialogue.IsRunning) return;
 
