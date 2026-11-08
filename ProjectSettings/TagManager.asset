@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - SaveStone
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Interacteble
   - Wild
   - CameraBounds
-  - 
+  - Character
   - 
   - 
   - 
@@ -41,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 336063891
+    locked: 0
   - name: Ground
     uniqueID: 3888032661
     locked: 0
@@ -49,6 +53,9 @@ TagManager:
     locked: 0
   - name: Characters
     uniqueID: 2940132359
+    locked: 0
+  - name: Battle
+    uniqueID: 3531907757
     locked: 0
   m_RenderingLayers:
   - Default

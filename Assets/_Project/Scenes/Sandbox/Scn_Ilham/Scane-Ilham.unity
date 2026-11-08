@@ -385,7 +385,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0027484894, y: 0.50841033}
+  m_Offset: {x: 0.0006765127, y: 0.4999066}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -395,7 +395,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7966242, y: 0.9062264}
+  m_Size: {x: 0.75518394, y: 0.8892189}
   m_EdgeRadius: 0
 --- !u!50 &1674635672
 Rigidbody2D:
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1fb5b77f0e74646b5d3aaa25ba6937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementI
-  moveSpeed: 3
+  config: {fileID: 11400000, guid: cf74be2b045a6be4085be9ef9bc83566, type: 2}
   rb: {fileID: 1674635672}
 --- !u!1 &1857587987
 GameObject:
