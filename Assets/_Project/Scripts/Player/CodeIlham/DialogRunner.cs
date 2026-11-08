@@ -33,18 +33,18 @@ public class DialogueRunner : MonoBehaviour
 
         if (gate != null) gate.Lock();
 
-        yield return null;
+        yield return null; // ⚠️ WAJIB: Lewati tombol pembuka
         clicked = false;
 
         yield return sequence;
 
         if (view != null) view.Hide();
 
-        yield return null;
+        yield return null; // ⚠️ WAJIB: Cegah dialog terbuka lagi
 
         if (gate != null) gate.Unlock();
 
-        IsRunning = false;
+        IsRunning = false; // ⚠️ WAJIB: Agar WorldInstaller tahu dialog selesai
     }
 
     public IEnumerator Say(string speaker, string text)
@@ -68,11 +68,7 @@ public class DialogueRunner : MonoBehaviour
         yield return TypeLine(speaker, prompt, false);
         picked = -1;
         if (view != null) view.ShowChoices(options);
-        
-        Debug.Log($"[DialogueRunner] Menunggu pilihan... picked={picked}");
         yield return new WaitUntil(() => picked >= 0);
-        Debug.Log($"[DialogueRunner] Pilihan diterima: {picked}");
-        
         if (view != null) view.HideChoices();
         result?.Invoke(picked);
     }
@@ -117,7 +113,6 @@ public class DialogueRunner : MonoBehaviour
 
     public void OnPicked(int index)
     {
-        Debug.Log($"[DialogueRunner] OnPicked({index})");
         picked = index;
     }
 }

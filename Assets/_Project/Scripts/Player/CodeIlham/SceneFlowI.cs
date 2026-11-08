@@ -188,31 +188,26 @@ public class SceneFlowI : MonoBehaviour
         if (fader != null) yield return fader.FadeIn();
     }
 
-    // 🟢 TELEPORT KE SAVE STONE MENGGUNAKAN TAG
     public void TeleportToSaveStone()
     {
         Debug.Log("[SceneFlow] TeleportToSaveStone triggered!");
         
-        // 🟢 1. Cari SaveStone menggunakan TAG (bukan script)
         GameObject saveStoneObj = GameObject.FindWithTag("SaveStone");
         
         if (services != null && services.Party != null && services.Party.PlayerTransform != null)
         {
             if (saveStoneObj != null)
             {
-                // Teleport player ke posisi SaveStone
                 services.Party.PlayerTransform.position = saveStoneObj.transform.position;
                 Debug.Log($"[SceneFlow] Player teleported to SaveStone at {saveStoneObj.transform.position}");
             }
             else
             {
-                // Fallback jika Tag SaveStone tidak ditemukan
                 services.Party.PlayerTransform.position = new Vector3(24f, 7f, 0f);
                 Debug.LogWarning("[SceneFlow] Tag 'SaveStone' tidak ditemukan! Menggunakan posisi fallback (24, 7).");
             }
         }
 
-        // 🟢 2. RESET SEMUA MONSTER KE POSISI AWAL
         WildMonsterI[] allMonsters = FindObjectsByType<WildMonsterI>();
         int resetCount = 0;
         
@@ -228,9 +223,11 @@ public class SceneFlowI : MonoBehaviour
         Debug.Log($"[SceneFlow] Successfully reset {resetCount} monsters to their original positions.");
     }
 
+    // ⚠️ WAJIB: Method ini dipanggil oleh WorldInstaller setelah intro selesai
     public IEnumerator ReleaseFade()
     {
-        holdFade = false;
+        Debug.Log("[SceneFlow] ReleaseFade() dipanggil");
+        holdFade = false; // ⚠️ WAJIB: Reset flag agar fade-in bisa jalan
         if (fader != null) yield return fader.FadeIn();
     }
 }

@@ -27,13 +27,14 @@ public class DialogueView : MonoBehaviour
     [Header("Dialogue Runner")]
     [SerializeField] private DialogueRunner runner;
 
+    [Header("Sprite Narasi")]
+    [SerializeField] private Sprite spriteNavy;   // UI_Panel_Navy
+    [SerializeField] private Sprite spriteNarr;   // UI_Panel_Narr
+
     public bool IsTyping { get; private set; }
 
     private Coroutine typingCoroutine;
     private Coroutine blinkCoroutine;
-
-    private static readonly Color ColorNavy = new Color(0.11f, 0.08f, 0.25f, 1f);
-    private static readonly Color ColorNarr = new Color(0.07f, 0.06f, 0.14f, 1f);
 
     void Awake()
     {
@@ -41,7 +42,13 @@ public class DialogueView : MonoBehaviour
         if (choicesPanel != null) choicesPanel.SetActive(false);
         if (continueHint != null) continueHint.SetActive(false);
 
-        // 🟢 WAJIB: Hubungkan TextMenu.Picked ke DialogueRunner.OnPicked
+        // 🟢 WAJIB: Set warna box ke PUTIH agar sprite tampil dengan warna aslinya
+        if (boxImage != null)
+        {
+            boxImage.color = Color.white;
+        }
+
+        // Hubungkan TextMenu.Picked ke DialogueRunner.OnPicked
         if (choicesMenu != null && runner != null)
         {
             choicesMenu.Picked += (index) =>
@@ -61,9 +68,19 @@ public class DialogueView : MonoBehaviour
     {
         if (dialogueRoot != null) dialogueRoot.SetActive(true);
 
+        // 🟢 GANTI SPRITE, BUKAN WARNA!
         if (boxImage != null)
         {
-            boxImage.color = isNarration ? ColorNarr : ColorNavy;
+            boxImage.color = Color.white; // Selalu putih!
+            
+            if (isNarration && spriteNarr != null)
+            {
+                boxImage.sprite = spriteNarr; // Sprite narasi (biru gelap)
+            }
+            else if (!isNarration && spriteNavy != null)
+            {
+                boxImage.sprite = spriteNavy; // Sprite dialog (navy)
+            }
         }
 
         if (speakerTag != null) speakerTag.SetActive(false);

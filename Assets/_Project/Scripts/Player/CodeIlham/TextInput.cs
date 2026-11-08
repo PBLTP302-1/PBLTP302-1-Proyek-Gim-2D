@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class TextInput: MonoBehaviour
+public class TextInput : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI[] rows;
     [SerializeField] private int columns = 1;
@@ -30,10 +30,8 @@ public class TextInput: MonoBehaviour
 
             int index = i;
 
-            // TextMeshProUGUI sudah Graphic, cukup aktifkan raycast
             rows[i].raycastTarget = true;
 
-            // Tambahkan Button component untuk klik mouse
             Button btn = rows[i].GetComponent<Button>();
             if (btn == null) btn = rows[i].gameObject.AddComponent<Button>();
 
@@ -77,8 +75,6 @@ public class TextInput: MonoBehaviour
         gameObject.SetActive(true);
         acceptInput = false;
         Redraw();
-
-        Debug.Log($"[TextMenu] Open: {count} options, selected={selectedRow}, labels=[{string.Join(",", labels)}]");
     }
 
     public void Click(int index)
@@ -108,7 +104,6 @@ public class TextInput: MonoBehaviour
         
         if (MenuInput.Confirm)
         {
-            Debug.Log($"[TextMenu] Confirm ditekan! selectedRow={selectedRow}, label={labels[selectedRow]}");
             Pick(selectedRow);
         }
     }
@@ -131,7 +126,6 @@ public class TextInput: MonoBehaviour
     private void Pick(int index)
     {
         if (!usable[index]) return;
-        Debug.Log($"[TextMenu] Pick({index}) -> label={labels[index]}");
         Picked?.Invoke(index);
     }
 
@@ -141,7 +135,8 @@ public class TextInput: MonoBehaviour
         {
             if (rows[i] == null) continue;
             bool on = i == selectedRow;
-            rows[i].text = (on ? "▶ " : "  ") + labels[i];
+            // 🟢 PERUBAHAN DI SINI: □ diganti ▶
+            rows[i].text = (on ? "> " : "  ") + labels[i];
             rows[i].color = !usable[i] ? disabled : on ? selected : normal;
         }
     }

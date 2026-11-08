@@ -22,7 +22,6 @@ public class WorldInstallerI : SceneInstaller
         if (player != null)
         {
             player.Construct(s.Input);
-            // Set player transform ke party untuk teleport
             if (s.Party != null)
             {
                 s.Party.SetPlayerTransform(player.transform);
@@ -35,22 +34,21 @@ public class WorldInstallerI : SceneInstaller
 
         if (follower != null) follower.Construct(s.Party, player);
 
-        // 2. Handle Save Load atau Intro Pembuka (Sesuai Modul P6 Slide 22)
+        // 2. Handle Save Load atau Intro Pembuka
         if (s.Save != null && s.Save.PendingLoad != null)
         {
-            // Jika ada data load, teleport player ke posisi tersimpan
             if (player != null)
             {
                 player.transform.position = s.Save.PendingLoad.playerPosition;
             }
-            s.Save.PendingLoad = null; // Clear pending load agar tidak loop
+            s.Save.PendingLoad = null;
 
             if (s.Toast != null) s.Toast.Show("Perjalanan dilanjutkan");
         }
         else if (s.Flags != null && !s.Flags.Has(StoryFlags.IntroSeen))
         {
-            // Jalankan narasi pembuka jika ini permainan baru
-            if (s.Scenes != null) s.Scenes.HoldFade = true; // Tahan fade-in
+            // ⚠️ WAJIB: Tahan fade-in agar layar tetap hitam saat intro
+            if (s.Scenes != null) s.Scenes.HoldFade = true;
             StartCoroutine(RunIntro(s));
         }
 
@@ -78,32 +76,52 @@ public class WorldInstallerI : SceneInstaller
 
         foreach (WildMonsterI wild in monsters)
         {
-            // 🟢 PERBAIKAN: Tambahkan parameter ke-4 (s.Input)
             wild.Construct(s.Battle, s.Scenes, player.transform, s.Input);
         }
     }
 
-    // Narasi pembuka sesuai modul P6 (slide 22-23)
+    // ⚠️ WAJIB: Narasi pembuka sesuai modul P6
     private IEnumerator RunIntro(GameServicesI s)
     {
-        // Narasi pembuka - kotak biru tanpa nama pembicara
-        yield return s.Dialogue.Narrate("Di ujung Pulau Batam ada desa kecil yang damai...");
-        yield return s.Dialogue.Narrate("Namun, hutan di utara dipenuhi monster liar yang berbahaya.");
+        Debug.Log("[WorldInstaller] Memulai narasi pembuka...");
 
+        // Jalankan narasi
+        s.Dialogue.Run(IntroLines());
+
+        // ⚠️ WAJIB: Tunggu 1 frame agar Run() sempat dieksekusi
         yield return null;
 
-        // Tunggu sampai seluruh dialog intro selesai
-        while (s.Dialogue.IsRunning) yield return null;
+        // ⚠️ WAJIB: Tunggu sampai seluruh dialog intro selesai
+        while (s.Dialogue.IsRunning)
+        {
+            yield return null;
+        }
+
+        Debug.Log("[WorldInstaller] Narasi pembuka selesai.");
 
         // Tandai intro sudah dilihat agar tidak muncul lagi
         s.Flags.Set(StoryFlags.IntroSeen);
 
-        // Fade-in setelah intro selesai
-        if (s.Scenes != null) yield return s.Scenes.ReleaseFade();
+        // ⚠️ WAJIB: Fade-in setelah intro selesai
+        if (s.Scenes != null)
+        {
+            yield return s.Scenes.ReleaseFade();
+        }
 
+        // Tampilkan toast petunjuk
         if (s.Toast != null)
         {
             s.Toast.Show("Temui Tetua Rahmat (kanan jalan desa)");
         }
+    }
+
+    // ⚠️ WAJIB: Urutan narasi pembuka
+    private IEnumerator IntroLines()
+    {
+        // Gunakan DialogueRunner yang sudah di-resolve di Install()
+        DialogueRunner dialogue = FindAnyObjectByType<DialogueRunner>();
+        
+        yield return dialogue.Narrate("Di ujung Pulau Batam ada desa kecil yang damai...");
+        yield return dialogue.Narrate("Namun, hutan di utara dipenuhi monster liar yang berbahaya.");
     }
 }
