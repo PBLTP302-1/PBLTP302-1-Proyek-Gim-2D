@@ -823,11 +823,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d7ca165e8df714896915b21be3c652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameBootstrapI
-  firstScene: Scn_WorldI
+  firstScene: Scn_Title
   monsterDatabase: {fileID: 11400000, guid: e0e1ce0ced2e5da4294f57a6623bfd00, type: 2}
   fader: {fileID: 310566317}
-  dialogueRunner: {fileID: 2023896448}
   toastView: {fileID: 2108228230}
+  dialogueRunner: {fileID: 2023896448}
 --- !u!1 &515618979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,6 +1383,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749460603}
   m_CullTransparentMesh: 1
+--- !u!1 &777795572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 777795574}
+  - component: {fileID: 777795573}
+  m_Layer: 0
+  m_Name: SceneFlowI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &777795573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777795572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82cba69a0e1473b41ab280ec1481b7bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneFlowI
+--- !u!4 &777795574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777795572}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 416.49454, y: 561.97705, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &953049461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,6 +2032,8 @@ GameObject:
   - component: {fileID: 2023896443}
   - component: {fileID: 2023896448}
   - component: {fileID: 2023896447}
+  - component: {fileID: 2023896449}
+  - component: {fileID: 2023896450}
   m_Layer: 5
   m_Name: CanvasDialog
   m_TagString: Untagged
@@ -2117,6 +2163,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueRunner
   view: {fileID: 2023896447}
   secondsPerChar: 0.018
+--- !u!114 &2023896449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023896442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e69e76c9bacde4d9c6094a50025032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentDialogue
+--- !u!114 &2023896450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023896442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87140d2293076cc4a87b5e66bab82423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentUI
 --- !u!1 &2101221384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,6 +2332,7 @@ GameObject:
   - component: {fileID: 2108228227}
   - component: {fileID: 2108228226}
   - component: {fileID: 2108228230}
+  - component: {fileID: 2108228231}
   m_Layer: 5
   m_Name: Canvas_Toast
   m_TagString: Untagged
@@ -2368,6 +2439,18 @@ MonoBehaviour:
   box: {fileID: 426367986}
   text: {fileID: 1398422499}
   displayTime: 5
+--- !u!114 &2108228231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108228225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87140d2293076cc4a87b5e66bab82423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentUI
 --- !u!1 &2111066061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2515,3 +2598,4 @@ SceneRoots:
   - {fileID: 2023896446}
   - {fileID: 677334538}
   - {fileID: 468306024}
+  - {fileID: 777795574}

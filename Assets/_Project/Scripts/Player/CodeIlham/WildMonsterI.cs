@@ -57,6 +57,8 @@ public class WildMonsterI : MonoBehaviour
         this.scenes = scenes;
         player = playerTransform;
         this.gate = gate;
+        
+        Debug.Log($"[WildMonster] {gameObject.name} berhasil di-construct. scenes={scenes != null}, session={session != null}");
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -74,31 +76,45 @@ public class WildMonsterI : MonoBehaviour
     void StartBattle()
     {
         if (battleStarted) return;
-        battleStarted = true;
 
+        // 🟢 NULL-CHECK KRITIS SEBELUM MEMULAI BATTLE
+        if (scenes == null)
+        {
+            Debug.LogError($"[WildMonster] {gameObject.name}: scenes NULL! Battle tidak bisa dimulai.");
+            Debug.LogError("[WildMonster] Pastikan WorldInstaller mengirim parameter s.Scenes yang valid.");
+            battleStarted = false; // Reset agar tidak soft-lock
+            return;
+        }
+
+        if (session == null)
+        {
+            Debug.LogError($"[WildMonster] {gameObject.name}: session NULL! Battle tidak bisa dimulai.");
+            battleStarted = false;
+            return;
+        }
+
+        battleStarted = true;
         StopChase();
         isReturningHome = false;
         battleStartPosition = transform.position;
 
         if (alertIndicator != null) alertIndicator.SetActive(false);
 
-        if (session != null)
-        {
-            session.SetBattleLoading(true);
-            session.SetEnemy(new MonsterInstanceI(data, level), isBoss, this);
-        }
+        session.SetBattleLoading(true);
+        session.SetEnemy(new MonsterInstanceI(data, level), isBoss, this);
         
         gameObject.SetActive(false);
         
-        if (scenes != null) scenes.LoadBattle();
+        Debug.Log($"[WildMonster] {gameObject.name} memicu LoadBattle()");
+        scenes.LoadBattle();
     }
 
     void Update()
     {
-        // 🟢 DEKLARASI isPlayerSafe HANYA SEKALI DI SINI
-        bool isPlayerSafe = session != null && session.IsPlayerSafe();
+        // 🟢 DEKLARASI isPlayerSafe DENGAN NULL-CHECK
+        bool isPlayerSafe = (session != null) && session.IsPlayerSafe();
 
-        // 1. TOGGLE COLLIDER (PALING ATAS)
+        // 1. TOGGLE COLLIDER
         if (monsterCollider != null)
         {
             bool shouldBeTrigger = !isPlayerSafe;
@@ -210,7 +226,7 @@ public class WildMonsterI : MonoBehaviour
 
     public void OnBattleEnd(BattleResultI result)
     {
-         Debug.Log($"[WildMonster] {gameObject.name}: OnBattleEnd({result})");
+        Debug.Log($"[WildMonster] {gameObject.name}: OnBattleEnd({result})");
         
         battleStarted = false;
         StopChase();
@@ -218,20 +234,15 @@ public class WildMonsterI : MonoBehaviour
 
         if (result == BattleResultI.Win)
         {
-            // Menang: Monster hilang, respawn 10 detik
             StartCoroutine(RespawnWithCooldown(10f, CooldownSeconds));
         }
         else if (result == BattleResultI.Flee)
         {
-            // Kabur: Monster tetap di posisi saat battle + cooldown 4 detik
             gameObject.SetActive(true);
             cooldown = CooldownSeconds;
         }
         else if (result == BattleResultI.Lose)
         {
-            // 🟢 KALAH: Monster langsung di-teleport ke posisi awal (seperti reset scene)
-            // Kita panggil ForceResetToHome() langsung di sini karena monster ini sedang non-aktif
-            // dan tidak terdeteksi oleh FindObjectsByType di TeleportToSaveStone.
             ForceResetToHome();
         }
     }
@@ -246,20 +257,17 @@ public class WildMonsterI : MonoBehaviour
         
         cooldown = cooldownDelay;
     }
-     public void ForceResetToHome()
+
+    public void ForceResetToHome()
     {
         Debug.Log($"[WildMonster] {gameObject.name}: Force reset to home position.");
         
-        // Reset semua state
         battleStarted = false;
         StopChase();
         isReturningHome = false;
-        cooldown = 0f; // Hapus cooldown agar monster langsung aktif kembali
+        cooldown = 0f;
         
-        // Pastikan monster muncul (jika sebelumnya di-hide saat battle)
         gameObject.SetActive(true);
-        
-        // Kembalikan ke posisi spawn asli
         transform.position = originalHomePosition;
         battleStartPosition = originalHomePosition;
     }

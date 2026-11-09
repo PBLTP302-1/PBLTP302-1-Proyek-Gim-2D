@@ -15830,7 +15830,7 @@ Transform:
   m_GameObject: {fileID: 689332608}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.43, y: -28.34, z: -10}
+  m_LocalPosition: {x: 20.06, y: -29.32, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19984,11 +19984,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2164357457590029063, guid: b3cd8e1af33b1b04697aed3d47020735, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.32
+      value: 27.49
       objectReference: {fileID: 0}
     - target: {fileID: 2164357457590029063, guid: b3cd8e1af33b1b04697aed3d47020735, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -29.73
+      value: -27.43
       objectReference: {fileID: 0}
     - target: {fileID: 2164357457590029063, guid: b3cd8e1af33b1b04697aed3d47020735, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20277,8 +20277,7 @@ MonoBehaviour:
   guardNpc: {fileID: 648393006}
   merchantNpc: {fileID: 1188878582}
   otherNpcs: []
-  saveStone: {fileID: 0}
-  flagToggles: []
+  saveStone: {fileID: 1822658962}
 --- !u!1 &1104772809
 GameObject:
   m_ObjectHideFlags: 0
@@ -20459,7 +20458,7 @@ Transform:
   m_GameObject: {fileID: 1104772809}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.43, y: -28.34, z: 0}
+  m_LocalPosition: {x: 20.06, y: -29.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20663,25 +20662,6 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2668855227087699516, guid: da2cf605189fafe4abedb5044e614346, type: 3}
   m_PrefabInstance: {fileID: 1777557216}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1188878578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1188878574}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9efc9464471dc1e44a6e98468b849a75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NpcI
-  npcName: Merchant
-  body: {fileID: 1188878576}
-  faceDown: {fileID: -1278242927, guid: 4b2ed9b41fdf01e47b0aa52721847f9e, type: 3}
-  faceLeft: {fileID: -1998396912, guid: 4b2ed9b41fdf01e47b0aa52721847f9e, type: 3}
-  faceRight: {fileID: 351314633, guid: 4b2ed9b41fdf01e47b0aa52721847f9e, type: 3}
-  faceUp: {fileID: -2098784439, guid: 4b2ed9b41fdf01e47b0aa52721847f9e, type: 3}
-  dialogue: {fileID: 0}
 --- !u!114 &1188878582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34331,11 +34311,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4632419514951735794, guid: 1135f72811b70cb4ab03f260bfce0da7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.2
+      value: 7.61
       objectReference: {fileID: 0}
     - target: {fileID: 4632419514951735794, guid: 1135f72811b70cb4ab03f260bfce0da7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.81
+      value: -27.43
       objectReference: {fileID: 0}
     - target: {fileID: 4632419514951735794, guid: 1135f72811b70cb4ab03f260bfce0da7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -35187,11 +35167,11 @@ PrefabInstance:
       objectReference: {fileID: -1278242927, guid: 4b2ed9b41fdf01e47b0aa52721847f9e, type: 3}
     - target: {fileID: 3692669626859114777, guid: da2cf605189fafe4abedb5044e614346, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.61
+      value: 17.19
       objectReference: {fileID: 0}
     - target: {fileID: 3692669626859114777, guid: da2cf605189fafe4abedb5044e614346, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.82
+      value: -27.27
       objectReference: {fileID: 0}
     - target: {fileID: 3692669626859114777, guid: da2cf605189fafe4abedb5044e614346, type: 3}
       propertyPath: m_LocalPosition.z
@@ -35235,9 +35215,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5669483493782488680, guid: da2cf605189fafe4abedb5044e614346, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1188878578}
-    - targetCorrespondingSourceObject: {fileID: 5669483493782488680, guid: da2cf605189fafe4abedb5044e614346, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1188878582}
   m_SourcePrefab: {fileID: 100100000, guid: da2cf605189fafe4abedb5044e614346, type: 3}
 --- !u!1 &1810937584 stripped
@@ -35261,7 +35238,8 @@ GameObject:
   - component: {fileID: 1822658960}
   - component: {fileID: 1822658959}
   - component: {fileID: 1822658961}
-  m_Layer: 0
+  - component: {fileID: 1822658962}
+  m_Layer: 8
   m_Name: SaveStone
   m_TagString: SaveStone
   m_Icon: {fileID: 0}
@@ -35337,7 +35315,7 @@ Transform:
   m_GameObject: {fileID: 1822658958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.83, y: -27.43, z: 0}
+  m_LocalPosition: {x: 28.66, y: -27.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35389,6 +35367,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.65348244, y: 0.6068039}
   m_EdgeRadius: 0
+--- !u!114 &1822658962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822658958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198a649b703ed2648afed56614e446ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveStone
 --- !u!1 &1833697038
 GameObject:
   m_ObjectHideFlags: 0
@@ -35663,7 +35653,7 @@ Transform:
   m_GameObject: {fileID: 1933968174}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.43, y: -28.34, z: -10}
+  m_LocalPosition: {x: 20.06, y: -29.32, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

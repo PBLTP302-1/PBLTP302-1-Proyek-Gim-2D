@@ -29,6 +29,12 @@ public class PlayerPartyI
             PotionsChanged?.Invoke();
         }
     }
+    public void SetPotions(int amount)
+{
+    Potions = Mathf.Max(0, amount);
+    PotionsChanged?.Invoke();
+}
+    
 
     // 🟢 TAMBAHKAN METHOD INI
     public void SetPlayerTransform(Transform transform)

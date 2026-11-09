@@ -16,9 +16,6 @@ public class WorldInstallerI : SceneInstaller
 
     [Header("World Objects")]
     [SerializeField] private SaveStone saveStone;
-    
-    // 🟢 BARU: Array untuk FlagToggle (bisa lebih dari 1)
-    [SerializeField] private FlagToggle[] flagToggles;
 
     public override void Install(GameServicesI s)
     {
@@ -43,17 +40,21 @@ public class WorldInstallerI : SceneInstaller
         // 2. Handle Save Load atau Intro Pembuka
         if (s.Save != null && s.Save.PendingLoad != null)
         {
+            Debug.Log("[WorldInstaller] Memuat data dari Save File...");
+            
+            SaveMapper.Apply(s.Save.PendingLoad, s);
+            
             if (player != null)
             {
                 player.transform.position = s.Save.PendingLoad.playerPosition;
             }
+            
             s.Save.PendingLoad = null;
 
             if (s.Toast != null) s.Toast.Show("Perjalanan dilanjutkan");
         }
         else if (s.Flags != null && !s.Flags.Has(StoryFlags.IntroSeen))
         {
-            // Tahan fade-in agar layar tetap hitam saat intro
             if (s.Scenes != null) s.Scenes.HoldFade = true;
             StartCoroutine(RunIntro(s));
         }
@@ -80,32 +81,39 @@ public class WorldInstallerI : SceneInstaller
         if (saveStone != null)
         {
             saveStone.Construct(s, player);
+            Debug.Log("[WorldInstaller] SaveStone berhasil di-construct.");
         }
-
-        // 🟢 BARU: FlagToggle Construct
-        if (flagToggles != null)
+        else
         {
-            Debug.Log($"[WorldInstaller] Mendaftarkan {flagToggles.Length} FlagToggle");
-            foreach (var ft in flagToggles)
-            {
-                if (ft != null)
-                {
-                    ft.Construct(s.Flags);
-                }
-            }
+            Debug.LogWarning("[WorldInstaller] SaveStone NULL di Inspector!");
         }
 
-        // 5. Monster Liar
+        // 🟢 5. Monster Liar - DENGAN NULL-CHECK LENGKAP
+        Debug.Log($"[WorldInstaller] s.Scenes = {s.Scenes != null}");
+        Debug.Log($"[WorldInstaller] s.Battle = {s.Battle != null}");
+        
         WildMonsterI[] monsters = FindObjectsByType<WildMonsterI>();
         Debug.Log($"[WorldInstaller] Menemukan {monsters.Length} monster liar");
 
         foreach (WildMonsterI wild in monsters)
         {
+            if (s.Scenes == null)
+            {
+                Debug.LogError($"[WorldInstaller] s.Scenes NULL! Monster {wild.gameObject.name} tidak bisa di-construct.");
+                continue;
+            }
+
+            if (s.Battle == null)
+            {
+                Debug.LogError($"[WorldInstaller] s.Battle NULL! Monster {wild.gameObject.name} tidak bisa di-construct.");
+                continue;
+            }
+
             wild.Construct(s.Battle, s.Scenes, player.transform, s.Input);
+            Debug.Log($"[WorldInstaller] Monster {wild.gameObject.name} berhasil di-construct");
         }
     }
 
-    // Narasi pembuka
     private IEnumerator RunIntro(GameServicesI s)
     {
         Debug.Log("[WorldInstaller] Memulai narasi pembuka...");
@@ -129,7 +137,12 @@ public class WorldInstallerI : SceneInstaller
 
         if (s.Toast != null)
         {
+            Debug.Log("[WorldInstaller] Menampilkan toast: Temui Tetua Rahmat");
             s.Toast.Show("Temui Tetua Rahmat (kanan jalan desa)");
+        }
+        else
+        {
+            Debug.LogError("[WorldInstaller] ToastView NULL!");
         }
     }
 

@@ -18,11 +18,19 @@ public class SceneFlowI : MonoBehaviour
     public const string WorldScene = "Scn_WorldI";
     public const string BattleScene = "Scn_BattleI";
 
+    // 🟢 TAMBAHKAN METHOD INI
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        Debug.Log($"[SceneFlowI] Awake: {gameObject.name} akan persisten antar scene");
+    }
+
     public void Construct(GameBootstrapI bootstrap, ScreenFader fader, GameServicesI services)
     {
         this.bootstrap = bootstrap;
         this.fader = fader;
         this.services = services;
+        Debug.Log($"[SceneFlowI] Construct: bootstrap={bootstrap != null}, fader={fader != null}, services={services != null}");
     }
 
     public void GoTo(string sceneName)
@@ -223,11 +231,10 @@ public class SceneFlowI : MonoBehaviour
         Debug.Log($"[SceneFlow] Successfully reset {resetCount} monsters to their original positions.");
     }
 
-    // ⚠️ WAJIB: Method ini dipanggil oleh WorldInstaller setelah intro selesai
     public IEnumerator ReleaseFade()
     {
         Debug.Log("[SceneFlow] ReleaseFade() dipanggil");
-        holdFade = false; // ⚠️ WAJIB: Reset flag agar fade-in bisa jalan
+        holdFade = false;
         if (fader != null) yield return fader.FadeIn();
     }
 }

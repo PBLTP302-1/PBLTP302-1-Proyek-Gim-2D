@@ -10,7 +10,8 @@ public class DialogueRunner : MonoBehaviour
     [Header("Kecepatan Ketik")]
     [SerializeField] private float secondsPerChar = 0.018f;
 
-    public bool IsRunning { get; private set; }
+    // 🟢 KOREKSI: Hapus 'private' agar bisa di-reset dari TitleInstaller
+    public bool IsRunning { get; set; }
 
     private InputGate gate;
     private bool clicked;
@@ -114,5 +115,14 @@ public class DialogueRunner : MonoBehaviour
     public void OnPicked(int index)
     {
         picked = index;
+    }
+
+    // 🟢 TAMBAHKAN: Method khusus untuk mereset state dialog (dipanggil TitleInstaller)
+    public void ForceStop()
+    {
+        IsRunning = false;
+        if (view != null) view.Hide();
+        if (gate != null) gate.Unlock();
+        Debug.Log("[DialogueRunner] ForceStop dipanggil. Dialog dan Input di-reset.");
     }
 }
