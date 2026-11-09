@@ -14,6 +14,12 @@ public class WorldInstallerI : SceneInstaller
     [SerializeField] private MerchantNpc merchantNpc;
     [SerializeField] private NpcI[] otherNpcs;
 
+    [Header("World Objects")]
+    [SerializeField] private SaveStone saveStone;
+    
+    // 🟢 BARU: Array untuk FlagToggle (bisa lebih dari 1)
+    [SerializeField] private FlagToggle[] flagToggles;
+
     public override void Install(GameServicesI s)
     {
         Debug.Log("[WorldInstaller] Install() dipanggil!");
@@ -47,7 +53,7 @@ public class WorldInstallerI : SceneInstaller
         }
         else if (s.Flags != null && !s.Flags.Has(StoryFlags.IntroSeen))
         {
-            // ⚠️ WAJIB: Tahan fade-in agar layar tetap hitam saat intro
+            // Tahan fade-in agar layar tetap hitam saat intro
             if (s.Scenes != null) s.Scenes.HoldFade = true;
             StartCoroutine(RunIntro(s));
         }
@@ -70,7 +76,26 @@ public class WorldInstallerI : SceneInstaller
             if (npc != null) npc.Construct(dialogue, s.Flags, s.Party, s.Toast);
         }
 
-        // 4. Monster Liar
+        // 4. SaveStone Construct
+        if (saveStone != null)
+        {
+            saveStone.Construct(s, player);
+        }
+
+        // 🟢 BARU: FlagToggle Construct
+        if (flagToggles != null)
+        {
+            Debug.Log($"[WorldInstaller] Mendaftarkan {flagToggles.Length} FlagToggle");
+            foreach (var ft in flagToggles)
+            {
+                if (ft != null)
+                {
+                    ft.Construct(s.Flags);
+                }
+            }
+        }
+
+        // 5. Monster Liar
         WildMonsterI[] monsters = FindObjectsByType<WildMonsterI>();
         Debug.Log($"[WorldInstaller] Menemukan {monsters.Length} monster liar");
 
@@ -80,18 +105,14 @@ public class WorldInstallerI : SceneInstaller
         }
     }
 
-    // 🟢 METHOD INI YANG HILANG - Narasi pembuka sesuai modul P6
+    // Narasi pembuka
     private IEnumerator RunIntro(GameServicesI s)
     {
         Debug.Log("[WorldInstaller] Memulai narasi pembuka...");
 
-        // Jalankan narasi
         s.Dialogue.Run(IntroLines());
-
-        // ️ WAJIB: Tunggu 1 frame agar Run() sempat dieksekusi
         yield return null;
 
-        // ⚠️ WAJIB: Tunggu sampai seluruh dialog intro selesai
         while (s.Dialogue.IsRunning)
         {
             yield return null;
@@ -99,23 +120,19 @@ public class WorldInstallerI : SceneInstaller
 
         Debug.Log("[WorldInstaller] Narasi pembuka selesai.");
 
-        // Tandai intro sudah dilihat agar tidak muncul lagi
         s.Flags.Set(StoryFlags.IntroSeen);
 
-        // ⚠️ WAJIB: Fade-in setelah intro selesai
         if (s.Scenes != null)
         {
             yield return s.Scenes.ReleaseFade();
         }
 
-        // Tampilkan toast petunjuk
         if (s.Toast != null)
         {
             s.Toast.Show("Temui Tetua Rahmat (kanan jalan desa)");
         }
     }
 
-    // 🟢 METHOD INI JUGA HARUS ADA - Urutan narasi pembuka
     private IEnumerator IntroLines()
     {
         DialogueRunner dialogue = FindAnyObjectByType<DialogueRunner>();

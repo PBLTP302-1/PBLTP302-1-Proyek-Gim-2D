@@ -3,19 +3,19 @@ using UnityEngine;
 public class FlagToggle : MonoBehaviour
 {
     [Header("Konfigurasi")]
-    [SerializeField] private string flagKey;      // Misal: "has_starter"
-    [SerializeField] private GameObject hideWhenSet;  // Palang Gate_Hutan
+    [SerializeField] private string flagKey;
+    [SerializeField] private GameObject hideWhenSet;
 
     private StoryFlags flags;
 
-    // Dipanggil oleh WorldInstaller
     public void Construct(StoryFlags flags)
     {
         this.flags = flags;
         
-        // Cek kondisi awal
+        // Cek kondisi awal (jika flag sudah aktif dari save)
         if (flags != null && flags.Has(flagKey))
         {
+            Debug.Log($"[FlagToggle] Flag '{flagKey}' sudah aktif, menyembunyikan {hideWhenSet?.name}");
             if (hideWhenSet != null) hideWhenSet.SetActive(false);
         }
 
@@ -23,6 +23,7 @@ public class FlagToggle : MonoBehaviour
         if (flags != null)
         {
             flags.Changed += OnFlagChanged;
+            Debug.Log($"[FlagToggle] Mendaftarkan listener untuk flag: {flagKey}");
         }
     }
 
@@ -30,7 +31,7 @@ public class FlagToggle : MonoBehaviour
     {
         if (key == flagKey)
         {
-            Debug.Log($"[FlagToggle] Flag '{flagKey}' aktif, menyembunyikan {hideWhenSet?.name}");
+            Debug.Log($"[FlagToggle] Flag '{flagKey}' baru saja di-set! Menyembunyikan {hideWhenSet?.name}");
             if (hideWhenSet != null) hideWhenSet.SetActive(false);
         }
     }
