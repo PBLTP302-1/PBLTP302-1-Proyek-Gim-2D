@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class WildMonster_Karin : MonoBehaviour
+public class WildMonster_Podol : MonoBehaviour
 {
-    [SerializeField] private MonsterData_Karin monsterData;
+    [SerializeField] private MonsterData_Podol monsterData;
     [SerializeField] private int level = 3;
-    [SerializeField] private GameObject alert; // Sprite tanda !
+    [SerializeField] private GameObject alert;
 
     private StateMachine stateMachine;
     private Transform player;
@@ -26,16 +26,16 @@ public class WildMonster_Karin : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // Logika sederhana: Jika pemain dekat (< 3.25 unit), munculkan tanda !
+       
         if (distanceToPlayer < 3.25f)
         {
             if (alert != null) alert.SetActive(true);
-            // Pindah ke mode mengejar (Chase)
+            
         }
         else
         {
             if (alert != null) alert.SetActive(false);
-            // Kembali ke mode santai (Wander / Return)
+            
         }
     }
 
@@ -45,7 +45,7 @@ public class WildMonster_Karin : MonoBehaviour
         {
             inBattle = true;
             Debug.Log("Menyentuh pemain! Masuk ke Scn_Battle.");
-            // Di sini nanti memicu perpindahan scene battle
+           
         }
     }
 }

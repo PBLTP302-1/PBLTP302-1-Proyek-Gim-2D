@@ -1,7 +1,6 @@
 using UnityEngine;
 
-// --- PENANDA: KODE ASLI DARI MODUL ---
-public interface IDamageableK
+public interface IDamageableP
 {
     int CurrentHP { get; }
     int MaxHP { get; }

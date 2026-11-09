@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTransition_Karin : MonoBehaviour
+public class SceneTransition_Podol : MonoBehaviour
 {
     [SerializeField] private string targetBattleScene = "Scn_Battle";
 

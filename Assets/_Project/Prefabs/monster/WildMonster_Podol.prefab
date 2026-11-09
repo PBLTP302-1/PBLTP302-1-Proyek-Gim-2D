@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8869876430367149749}
   - component: {fileID: 177634479806044252}
   m_Layer: 0
-  m_Name: WildMonster_Karin
+  m_Name: WildMonster_Podol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

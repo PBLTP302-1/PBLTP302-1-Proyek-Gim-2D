@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameBootstrap : MonoBehaviour
 {
-    [SerializeField] private string firstScene = "Scn_World";
+    [SerializeField] private string firstScene = "Scn_World_Podol";
     private IMoveInput moveInput;
      private IActionInput actionInput;
 

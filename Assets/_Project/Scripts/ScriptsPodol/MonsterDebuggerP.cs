@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class MonsterDebuggerK : MonoBehaviour
+public class MonsterDebuggerP : MonoBehaviour
 {
     // --- PENANDA: KODE ASLI DARI MODUL ---
-    [SerializeField] private MonsterData species;
+    [SerializeField] private MonsterData_Podol species;
     [SerializeField] private int level = 3;
 
-    private MonsterInstance monster;
+    private MonsterInstance_Podol monster;
 
     [ContextMenu("1. Buat Monster")]
     public void CreateMonster()
@@ -17,7 +17,7 @@ public class MonsterDebuggerK : MonoBehaviour
             return;
         }
 
-        monster = new MonsterInstance(species, level);
+        monster = new MonsterInstance_Podol (species, level);
         Debug.Log($"Monster dibuat: {monster.Data.DisplayName} (Lv. {monster.Level}) - HP Max: {monster.MaxHP}");
     }
 

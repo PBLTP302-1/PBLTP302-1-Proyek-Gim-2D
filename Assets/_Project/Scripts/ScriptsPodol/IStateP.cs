@@ -1,4 +1,4 @@
-public interface IStateK
+public interface IStateP
 {
     void Enter();
     void Tick(float deltaTime);

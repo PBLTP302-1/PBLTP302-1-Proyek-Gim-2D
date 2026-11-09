@@ -1,4 +1,4 @@
-public class StateMachineK
+public class StateMachineP
 {
     public IState Current { get; private set; }
     public void ChangeTo(IState next)

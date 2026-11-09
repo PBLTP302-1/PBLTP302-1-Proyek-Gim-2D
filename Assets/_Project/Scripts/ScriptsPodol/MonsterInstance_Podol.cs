@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-public class MonsterInstance_Karin : IDamageable
+public class MonsterInstance_Podol : IDamageable
 {
     // --- PENANDA: KODE ASLI DARI MODUL ---
-    public MonsterData Data { get; private set; }
+    public MonsterData_Podol Data { get; private set; }
     public int Level { get; private set; }
     public int CurrentHP { get; private set; }
     
@@ -15,7 +15,7 @@ public class MonsterInstance_Karin : IDamageable
     public int Attack => Mathf.RoundToInt(Data.BaseATK * Scale);
     public int ExpToNext => Level * 10;
 
-    public MonsterInstance_Karin(MonsterData data, int level)
+    public MonsterInstance_Podol(MonsterData_Podol data, int level)
     {
         Data = data;
         Level = level;
