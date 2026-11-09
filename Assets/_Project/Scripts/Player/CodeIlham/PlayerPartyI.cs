@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerPartyI
@@ -6,8 +6,10 @@ public class PlayerPartyI
     public MonsterInstanceI Partner { get; private set; }
     public int Potions { get; private set; } = 3;
     
-    // 🟢 TAMBAHKAN INI
     public Transform PlayerTransform { get; private set; }
+
+    // 🟢 PERBAIKAN: Event harus punya parameter int
+    public event Action<int> PotionsChanged;
 
     public void SetPartner(MonsterInstanceI partner)
     {
@@ -17,7 +19,7 @@ public class PlayerPartyI
     public void AddPotions(int amount)
     {
         Potions += amount;
-        PotionsChanged?.Invoke();
+        PotionsChanged?.Invoke(Potions); // 🟢 Kirim parameter
     }
 
     public void UsePotion()
@@ -26,17 +28,16 @@ public class PlayerPartyI
         {
             Potions--;
             int healed = Partner.Heal(Mathf.RoundToInt(Partner.MaxHP * 0.4f));
-            PotionsChanged?.Invoke();
+            PotionsChanged?.Invoke(Potions); // 🟢 Kirim parameter
         }
     }
-    public void SetPotions(int amount)
-{
-    Potions = Mathf.Max(0, amount);
-    PotionsChanged?.Invoke();
-}
     
+    public void SetPotions(int amount)
+    {
+        Potions = Mathf.Max(0, amount);
+        PotionsChanged?.Invoke(Potions); // 🟢 Kirim parameter
+    }
 
-    // 🟢 TAMBAHKAN METHOD INI
     public void SetPlayerTransform(Transform transform)
     {
         PlayerTransform = transform;
@@ -46,7 +47,6 @@ public class PlayerPartyI
     {
         Partner = null;
         Potions = 3;
+        PotionsChanged?.Invoke(Potions); // 🟢 Kirim parameter
     }
-
-    public event System.Action PotionsChanged;
 }
