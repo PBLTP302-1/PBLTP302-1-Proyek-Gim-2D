@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188484700ff668a489830adfdcedd8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AreaZoneI
+  areaMusic: {fileID: 8300000, guid: ae0c88f8d00265a4e8e44a08c70d48f7, type: 3}
   areaName: HutanI
 --- !u!61 &266584506
 BoxCollider2D:
@@ -728,6 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188484700ff668a489830adfdcedd8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AreaZoneI
+  areaMusic: {fileID: 0}
   areaName: GuaI
 --- !u!61 &509064486
 BoxCollider2D:
@@ -15603,6 +15605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188484700ff668a489830adfdcedd8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AreaZoneI
+  areaMusic: {fileID: 8300000, guid: d55d30a924cafa146bb1920364a0ec34, type: 3}
   areaName: DesaI
 --- !u!61 &600246289
 BoxCollider2D:
@@ -15805,7 +15808,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 7.03125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -16072,6 +16075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188484700ff668a489830adfdcedd8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AreaZoneI
+  areaMusic: {fileID: 0}
   areaName: DanauI
 --- !u!61 &772287848
 BoxCollider2D:

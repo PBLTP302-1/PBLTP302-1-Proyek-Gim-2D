@@ -15,6 +15,11 @@ public class BattleInstaller : SceneInstaller
     [SerializeField] private BattleSystem battle;
     [SerializeField] private BattleView view;
 
+    // 🟢 BARU: Field khusus Audio (sesuai Modul Praktikum 7)
+    [Header("Audio")]
+    [SerializeField] private AudioClip battleMusic;
+    [SerializeField] private AudioClip bossMusic;
+
     public override void Install(GameServicesI s)
     {
         Debug.Log("[BattleInstaller] Install() dipanggil!");
@@ -49,6 +54,19 @@ public class BattleInstaller : SceneInstaller
         else
         {
             Debug.LogError($"[BattleInstaller] battle={battle != null}, view={view != null}");
+        }
+
+        // 🟢 BARU: Logika Putar Musik Battle (sesuai Modul Praktikum 7)
+        if (s.Audio != null)
+        {
+            // Pilih bossMusic jika IsBoss true, jika tidak pilih battleMusic
+            AudioClip musicToPlay = (s.Battle.IsBoss && bossMusic != null) ? bossMusic : battleMusic;
+            
+            if (musicToPlay != null)
+            {
+                s.Audio.PlayBattleMusic(musicToPlay);
+                Debug.Log($"[BattleInstaller] 🎵 Memutar musik battle: {musicToPlay.name}");
+            }
         }
     }
 }

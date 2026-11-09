@@ -2,59 +2,70 @@ using UnityEngine;
 
 public class AudioService
 {
-    private AudioSource musicSource;
-    private AudioSource sfxSource;
+    private AudioSource music;
+    private AudioSource sfx;
     private AudioClip worldMusic;
-    public bool Muted { get; private set; }
+    private bool muted = false;
 
-    public AudioService()
+    public bool Muted => muted;
+
+    // INISIALISASI
+    public void Init(AudioSource musicSource, AudioSource sfxSource)
     {
-        GameObject audioObj = new GameObject("AudioService");
-        Object.DontDestroyOnLoad(audioObj);
-        
-        musicSource = audioObj.AddComponent<AudioSource>();
-        musicSource.loop = true;
-        musicSource.volume = 1f;
-        
-        sfxSource = audioObj.AddComponent<AudioSource>();
-        sfxSource.volume = 1f;
+        music = musicSource;
+        sfx = sfxSource;
+        Debug.Log("[AudioService] Inisialisasi selesai");
     }
 
+    // MUSIK DUNIA (Desa/Hutan/Danau/Gua)
     public void PlayWorldMusic(AudioClip clip)
     {
+        if (clip == null) return;
         worldMusic = clip;
         PlayMusic(clip);
     }
 
+    // MUSIK BATTLE
     public void PlayBattleMusic(AudioClip clip)
     {
+        if (clip == null) return;
         PlayMusic(clip);
     }
 
+    // KEMBALI KE MUSIK DUNIA (setelah battle)
     public void ResumeWorldMusic()
     {
-        if (worldMusic != null) PlayMusic(worldMusic);
+        if (worldMusic != null)
+        {
+            PlayMusic(worldMusic);
+        }
     }
 
+    // PLAY MUSIK
     private void PlayMusic(AudioClip clip)
     {
-        if (clip == null) return;
-        if (musicSource.clip == clip) return;
-        musicSource.clip = clip;
-        musicSource.Play();
+        if (music == null || clip == null) return;
+
+        music.clip = clip;
+        music.Play();
+        Debug.Log($"[AudioService] Memutar musik: {clip.name}");
     }
 
+    // SFX DENGAN PITCH JITTER
     public void PlaySfx(AudioClip clip, float pitchJitter = 0.05f)
     {
-        if (clip == null) return;
-        sfxSource.pitch = 1f + Random.Range(-pitchJitter, pitchJitter);
-        sfxSource.PlayOneShot(clip);
+        if (clip == null || sfx == null) return;
+
+        sfx.pitch = 1f + Random.Range(-pitchJitter, pitchJitter);
+        sfx.PlayOneShot(clip);
     }
 
+    // TOGGLE MUTE (tombol M)
     public bool ToggleMute()
     {
-        Muted = !Muted;
-        AudioListener.volume = Muted ? 0f : 1f;
-        return Muted;
+        muted = !muted;
+        AudioListener.volume = muted ? 0f : 1f;
+        Debug.Log($"[AudioService] Mute: {muted}");
+        return muted;
     }
 }

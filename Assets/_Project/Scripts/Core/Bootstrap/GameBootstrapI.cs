@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class GameBootstrapI : MonoBehaviour
 {
-    // 🟢 STATIC REFERENCE untuk TitleInstaller
     public static GameServicesI CurrentServices { get; private set; }
 
     [Header("Konfigurasi Awal")]
-    [SerializeField] private string firstScene = "Scn_Title"; 
+    [SerializeField] private string firstScene = "Scn_Title";
     [SerializeField] private MonsterDatabaseI monsterDatabase;
     [SerializeField] private ScreenFader fader;
 
@@ -14,32 +13,33 @@ public class GameBootstrapI : MonoBehaviour
     [SerializeField] private ToastView toastView;
     [SerializeField] private DialogueRunner dialogueRunner;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource sfxSource;
+
     private GameServicesI services;
 
     void Awake()
     {
-        // 🟢 PENTING: Agar DialogueRunner & ToastView tidak hancur saat ganti scene
         DontDestroyOnLoad(gameObject);
 
-        // 1. Buat Input Gate
+        Debug.Log("1. GameBootstrapI AWAKE BERJALAN!");
+
         var gate = new InputGate(
             new InputSystemMoveInputI(), 
             new InputSystemActionInputI()
         );
 
-        // 2. Cari ToastView
         if (toastView == null)
         {
             toastView = FindAnyObjectByType<ToastView>();
         }
 
-        // 3. Cari DialogueRunner
         if (dialogueRunner == null)
         {
             dialogueRunner = FindAnyObjectByType<DialogueRunner>();
         }
 
-        // 4. Inisialisasi GameServicesI
         services = new GameServicesI
         {
             Input = gate,
@@ -50,26 +50,43 @@ public class GameBootstrapI : MonoBehaviour
             Toast = toastView,
             Dialogue = dialogueRunner,
             Save = new SaveService(),
-            Audio = null
+            Audio = new AudioService(), // 🟢 Inisialisasi AudioService
+            Scenes = null
         };
-        
-        // 🟢 Set static reference
+
         CurrentServices = services;
 
-        // 5. Cari SceneFlowI dari scene (CARA AMAN untuk MonoBehaviour)
-        services.Scenes = FindObjectOfType<SceneFlowI>();
-        if (services.Scenes != null)
+        services.Scenes = FindAnyObjectByType<SceneFlowI>();
+
+        if (services.Scenes == null)
         {
-            services.Scenes.Construct(this, fader, services);
-            Debug.Log("[GameBootstrapI] ✅ SceneFlowI ditemukan & berhasil di-construct.");
+            Debug.LogWarning("[GameBootstrapI] ⚠️ SceneFlowI tidak ditemukan! Membuat GameObject otomatis...");
+            
+            GameObject sceneFlowObj = new GameObject("_SceneFlow");
+            sceneFlowObj.transform.SetParent(transform);
+            services.Scenes = sceneFlowObj.AddComponent<SceneFlowI>();
+            
+            Debug.Log("[GameBootstrapI] ✅ SceneFlowI dibuat otomatis");
         }
         else
         {
-            Debug.LogError("[GameBootstrapI] ❌ SceneFlowI TIDAK DITEMUKAN!");
-            Debug.LogError("[GameBootstrapI] Pastikan ada GameObject bernama '_SceneFlow' dengan komponen SceneFlowI di scene Scn_Bootstrap.");
+            Debug.Log("[GameBootstrapI] ✅ SceneFlowI ditemukan di scene");
         }
 
-        // 6. Hubungkan DialogueRunner dengan InputGate
+        services.Scenes.Construct(this, fader, services);
+        Debug.Log("[GameBootstrapI] ✅ SceneFlowI berhasil di-construct");
+
+        // 🟢 Inisialisasi AudioService
+        if (services.Audio != null)
+        {
+            services.Audio.Init(musicSource, sfxSource);
+            Debug.Log("[GameBootstrapI] ✅ AudioService berhasil di-inisialisasi");
+        }
+        else
+        {
+            Debug.LogError("[GameBootstrapI] ❌ AudioService NULL!");
+        }
+
         if (services.Dialogue != null)
         {
             services.Dialogue.SetGate(services.Input);
@@ -79,7 +96,6 @@ public class GameBootstrapI : MonoBehaviour
             Debug.LogError("[GameBootstrapI] ❌ DialogueRunner NULL!");
         }
 
-        // 7. Verifikasi
         if (services.Save == null)
         {
             Debug.LogError("[GameBootstrapI] ❌ SaveService NULL!");
@@ -97,10 +113,11 @@ public class GameBootstrapI : MonoBehaviour
 
     void Start()
     {
-        // 🟢 SAFETY CHECK: Pastikan Scenes tidak null sebelum dipanggil
+        Debug.Log("2. GameBootstrapI START BERJALAN!");
+
         if (services.Scenes == null)
         {
-            Debug.LogError("[GameBootstrapI] ❌ Gagal memuat scene karena SceneFlowI NULL. Game berhenti.");
+            Debug.LogError("[GameBootstrapI] ❌ Gagal memuat scene karena SceneFlowI NULL.");
             return;
         }
 
@@ -112,6 +129,26 @@ public class GameBootstrapI : MonoBehaviour
         else
         {
             Debug.LogError("[GameBootstrapI] ❌ firstScene kosong!");
+        }
+    }
+
+    void Update()
+    {
+        var keyboard = UnityEngine.InputSystem.Keyboard.current;
+        if (keyboard == null) return;
+
+        if (keyboard.mKey.wasPressedThisFrame)
+        {
+            if (services.Audio != null)
+            {
+                bool isMuted = services.Audio.ToggleMute();
+                Debug.Log($"[GameBootstrapI] Mute: {isMuted}");
+                
+                if (services.Toast != null)
+                {
+                    services.Toast.Show(isMuted ? "🔇 Suara dimatikan" : "🔊 Suara diaktifkan");
+                }
+            }
         }
     }
 

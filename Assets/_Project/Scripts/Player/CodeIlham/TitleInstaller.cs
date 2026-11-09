@@ -6,6 +6,9 @@ public class TitleInstaller : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextInput menu;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip titleMusic; // 🟢 BARU
+
     private GameServicesI services;
     private List<string> options = new List<string>();
 
@@ -15,12 +18,11 @@ public class TitleInstaller : MonoBehaviour
         
         if (services != null)
         {
-            Debug.Log("[TitleInstaller] Services ditemukan via static reference");
             Install();
         }
         else
         {
-            Debug.LogError("[TitleInstaller] GameBootstrapI.CurrentServices NULL!");
+            Debug.LogError("[TitleInstaller] CurrentServices NULL!");
         }
     }
 
@@ -28,7 +30,7 @@ public class TitleInstaller : MonoBehaviour
     {
         if (menu == null)
         {
-            Debug.LogError("[TitleInstaller] Menu NULL! Drag TitleMenu ke field Menu.");
+            Debug.LogError("[TitleInstaller] Menu NULL!");
             return;
         }
 
@@ -37,17 +39,21 @@ public class TitleInstaller : MonoBehaviour
         if (services.Save != null && services.Save.HasSave())
         {
             options.Add("Lanjutkan");
-            Debug.Log("[TitleInstaller] Save file ditemukan");
         }
 
         options.Add("Mulai baru");
         options.Add("Keluar");
 
-        Debug.Log($"[TitleInstaller] Install dengan {options.Count} opsi");
-
         menu.Picked -= OnPicked;
         menu.Picked += OnPicked;
         menu.Open(options.ToArray());
+
+        // 🟢 PUTAR MUSIK JUDUL
+        if (services.Audio != null && titleMusic != null)
+        {
+            services.Audio.PlayWorldMusic(titleMusic);
+            Debug.Log($"[TitleInstaller] Memutar musik judul: {titleMusic.name}");
+        }
     }
 
     private void OnPicked(int index)
@@ -55,7 +61,6 @@ public class TitleInstaller : MonoBehaviour
         if (index < 0 || index >= options.Count) return;
 
         string choice = options[index];
-        Debug.Log($"[TitleInstaller] Dipilih: {choice}");
 
         switch (choice)
         {
@@ -69,31 +74,6 @@ public class TitleInstaller : MonoBehaviour
                 Quit();
                 break;
         }
-    }
-
-    // 🟢 RESET KOMPREHENSIF - Dipanggil sebelum pindah ke WorldScene
-   private void ResetGameState()
-    {
-        Debug.Log("[TitleInstaller] === MEMULAI RESET STATE ===");
-
-        // 1. Reset DialogueRunner (PALING PENTING!)
-        if (services.Dialogue != null)
-        {
-            services.Dialogue.ForceStop(); // 🟢 Gunakan method baru ini
-        }
-        else
-        {
-            Debug.LogWarning("[TitleInstaller] ⚠ DialogueRunner NULL!");
-        }
-
-        // 2. Reset BattleSession (jika ada battle yang tersisa)
-        if (services.Battle != null)
-        {
-            services.Battle.SetBattleLoading(false);
-            Debug.Log("[TitleInstaller] ✓ BattleSession di-reset");
-        }
-
-        Debug.Log("[TitleInstaller] === RESET SELESAI ===");
     }
 
     private void Continue()
@@ -113,44 +93,17 @@ public class TitleInstaller : MonoBehaviour
             return;
         }
 
-        // 🟢 RESET STATE DULU SEBELUM APPLY
-        ResetGameState();
-
-        // Terapkan data save
         SaveMapper.Apply(data, services);
         services.Save.PendingLoad = data;
 
-        Debug.Log($"[TitleInstaller] Load game: posisi {data.playerPosition}, partner {data.partnerId}");
-        Debug.Log($"[TitleInstaller] Flags setelah load: {string.Join(", ", services.Flags.GetAll())}");
-
-        // Pindah scene
+        Debug.Log("[TitleInstaller] Load game berhasil");
         services.Scenes.GoTo(SceneFlowI.WorldScene);
     }
 
     private void NewGame()
     {
-        // 🟢 RESET STATE DULU
-        ResetGameState();
-
-        // Reset Party (ramuan = 3, tanpa partner)
-        if (services.Party != null)
-        {
-            services.Party.Reset();
-            Debug.Log("[TitleInstaller] ✓ PlayerParty di-reset");
-        }
-
-        // Clear semua flag (agar intro bisa diputar ulang)
-        if (services.Flags != null)
-        {
-            services.Flags.Clear();
-            Debug.Log("[TitleInstaller] ✓ StoryFlags di-clear");
-        }
-
-        // Hapus pending load (jika ada)
-        if (services.Save != null)
-        {
-            services.Save.PendingLoad = null;
-        }
+        if (services.Party != null) services.Party.Reset();
+        if (services.Flags != null) services.Flags.Clear();
 
         Debug.Log("[TitleInstaller] Mulai game baru");
         services.Scenes.GoTo(SceneFlowI.WorldScene);

@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleInstaller
   menu: {fileID: 1797099922}
+  titleMusic: {fileID: 8300000, guid: 9dc8f61df991dda49b109e467477633e, type: 3}
 --- !u!1 &362790234
 GameObject:
   m_ObjectHideFlags: 0
