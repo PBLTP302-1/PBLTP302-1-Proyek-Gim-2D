@@ -105,9 +105,7 @@ public class DialogueView : MonoBehaviour
             {
                 speakerTag.SetActive(true);
                 // Lebar min(488, huruf × 20 + 64)
-                RectTransform rect = speakerTag.GetComponent<RectTransform>();
-                float width = Mathf.Min(488f, speaker.Length * 20f + 64f);
-                rect.sizeDelta = new Vector2(width, rect.sizeDelta.y);
+                
             }
             if (speakerText != null) speakerText.text = speaker;
         }
