@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1767597812061748317
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 362211982716059728, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 362211982716059728, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 362211982716059728, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 362211982716059728, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 362211982716059728, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 362211982716059728, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 362211982716059728, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 362211982716059728, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 362211982716059728, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 362211982716059728, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230341388718929474, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -821350165, guid: 6bd987a4be5a98346a3e14c22c4a8161, type: 3}
+    - target: {fileID: 5709963920738609172, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_Name
+      value: WildMonster_Karin Vlorazor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158820774992234158, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 356541b8d04bea74db9fe89ef12bf369, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 15098c5bc334a2045b9c5fbca4ff6673, type: 3}
