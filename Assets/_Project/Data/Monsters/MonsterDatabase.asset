@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 298965895f8d4b64dbaf1585070896f5, type: 3}
   m_Name: MonsterDatabase
   m_EditorClassIdentifier: Assembly-CSharp::MonsterDatabase
-  allMonsters:
+  monsters:
   - {fileID: 11400000, guid: da2a4eec7dd426e4999ee3ffe743ba53, type: 2}
   - {fileID: 11400000, guid: 23f5d602210d0cd4b86154df10b3b076, type: 2}
   - {fileID: 11400000, guid: 87c5994db3141be419aa90a017c1ff02, type: 2}
